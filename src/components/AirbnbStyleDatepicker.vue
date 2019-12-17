@@ -187,6 +187,21 @@
           <span>?</span>
         </button>
       </div>
+      <div v-if="footer" class="asd__footer">
+        <select
+          title="Rozmezí"
+          v-model="selectedInterval"
+          @change="onSearchIntervalChange"
+          class="form__control"
+        >
+          <option v-for="(name, key) in searchIntervals" :key="key" :value="key">{{ name }}</option>
+        </select>
+        <a @click="closeDatepicker()" class="btn btn--prmr">
+          <span>
+            <span>Hotovo</span>
+          </span>
+        </a>
+      </div>
     </div>
   </transition>
 </template>
@@ -250,6 +265,9 @@ export default {
     },
     trigger: { type: Boolean, default: false },
     closeAfterSelect: { type: Boolean, default: false },
+    footer: { type: Boolean, default: false },
+    searchIntervals: { type: Object, default: null },
+    selectedInterval: { type: Number, default: null },
   },
   data() {
     return {
@@ -1089,6 +1107,11 @@ export default {
           datepickerWrapper.getBoundingClientRect().width
         this.alignRight = rightPosition > viewportWidth
       })
+    },
+    onSearchIntervalChange(event) {
+      let value = event.target.value;
+      this.selectedInterval = value;
+      this.$emit('searchInterval', value);
     },
   },
 }
