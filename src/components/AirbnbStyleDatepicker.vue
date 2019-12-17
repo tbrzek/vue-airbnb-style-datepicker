@@ -239,6 +239,7 @@ export default {
     resizeSelect: ResizeSelect,
   },
   props: {
+    selectingDate: { type: Number, default: 1 },
     triggerElementId: { type: String },
     dateOne: { type: [String, Date] },
     dateTwo: { type: [String, Date] },
@@ -465,6 +466,9 @@ export default {
     },
   },
   watch: {
+    selectingDate(newValue) {
+      this.isSelectingDate1 = (newValue === 1);
+    },
     selectedDate1(newValue, oldValue) {
       let newDate = !newValue || newValue === '' ? '' : format(newValue, this.dateFormat)
       this.$emit('date-one-selected', newDate)
