@@ -525,7 +525,6 @@ export default {
     }, 200)
     this._handleWindowClickEvent = event => {
       if (event.target.id === this.triggerElementId) {
-        event.stopPropagation()
         event.preventDefault()
         this.toggleDatepicker()
       }
