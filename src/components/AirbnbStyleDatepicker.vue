@@ -1,5 +1,5 @@
 <template>
-  <transition name="asd__fade">
+  <transition name="ts-fade">
     <div
       :id="wrapperId"
       class="asd__wrapper"
