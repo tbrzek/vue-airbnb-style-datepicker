@@ -221,10 +221,11 @@ return _c('td',{key:index + '_' + dayNumber,ref:("date-" + fullDate),refInFor:tr
     closeAfterSelect: { type: Boolean, default: false },
     footer: { type: Boolean, default: false },
     searchIntervals: { type: Object, default: null },
-    selectedInterval: { type: Number, default: null },
+    defaultInterval: { type: Number, default: null },
   },
   data: function data() {
     return {
+      selectedInterval: null,
       wrapperId: 'airbnb-style-datepicker-wrapper-' + randomString(5),
       dateFormat: 'YYYY-MM-DD',
       dateLabelFormat: 'dddd, MMMM D, YYYY',
@@ -471,6 +472,7 @@ return _c('td',{key:index + '_' + dayNumber,ref:("date-" + fullDate),refInFor:tr
   mounted: function mounted() {
     var this$1 = this;
 
+    this.selectedInterval = this.defaultInterval;
     this.viewportWidth = window.innerWidth + 'px';
     this.isMobile = window.innerWidth < 768;
     this.isTablet = window.innerWidth >= 768 && window.innerWidth <= 1024;
