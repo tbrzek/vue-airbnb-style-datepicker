@@ -470,6 +470,9 @@ export default {
     selectingDate(newValue) {
       this.isSelectingDate1 = (newValue === 1);
     },
+    isSelectingDate1(newValue) {
+      this.$emit('selectingDate', newValue ? 1 : 2)
+    },
     selectedDate1(newValue, oldValue) {
       let newDate = !newValue || newValue === '' ? '' : format(newValue, this.dateFormat)
       this.$emit('date-one-selected', newDate)

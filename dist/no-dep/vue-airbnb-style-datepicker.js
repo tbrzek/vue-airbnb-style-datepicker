@@ -437,6 +437,9 @@
       selectingDate: function selectingDate(newValue) {
         this.isSelectingDate1 = (newValue === 1);
       },
+      isSelectingDate1: function isSelectingDate1(newValue) {
+        this.$emit('selectingDate', newValue ? 1 : 2);
+      },
       selectedDate1: function selectedDate1(newValue, oldValue) {
         var newDate = !newValue || newValue === '' ? '' : format(newValue, this.dateFormat);
         this.$emit('date-one-selected', newDate);
