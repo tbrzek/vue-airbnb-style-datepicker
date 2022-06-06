@@ -189,6 +189,7 @@
       </div>
       <div v-if="footer" class="asd__footer">
         <select
+          v-if="searchIntervals.length > 0"
           title="Rozmezí"
           v-model="selectedInterval"
           @change="onSearchIntervalChange"
