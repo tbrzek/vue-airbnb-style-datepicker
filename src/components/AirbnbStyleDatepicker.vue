@@ -390,12 +390,6 @@ export default {
       return {
         position: this.inline ? 'static' : 'absolute',
         top: this.inline ? '0' : this.triggerPosition.height + this.offsetY + 'px',
-        left: !this.alignRight
-          ? this.triggerPosition.left - this.triggerWrapperPosition.left + this.offsetX + 'px'
-          : '',
-        right: this.alignRight
-          ? this.triggerWrapperPosition.right - this.triggerPosition.right + this.offsetX + 'px'
-          : '',
         width: this.width * this.showMonths + 'px',
         zIndex: this.inline ? '0' : '100',
       }
