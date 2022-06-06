@@ -197,7 +197,7 @@
         >
           <option v-for="(name, key) in searchIntervals" :key="key" :value="key">{{ name }}</option>
         </select>
-        <a @click="closeDatepicker()" class="btn btn--prmr">
+        <a @click="closeDatepicker()" class="button">
           <span>
             <span>Hotovo</span>
           </span>
