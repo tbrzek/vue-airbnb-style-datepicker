@@ -235,6 +235,7 @@
       },
       trigger: { type: Boolean, default: false },
       closeAfterSelect: { type: Boolean, default: false },
+      closeOnClickOutside: { type: Boolean, default: true },
       footer: { type: Boolean, default: false },
       searchIntervals: { type: Object, default: null },
       defaultInterval: { type: Number, default: null },
@@ -584,7 +585,7 @@
         }
       },
       handleClickOutside: function handleClickOutside(event) {
-        if (event.target.id === this.triggerElementId || !this.showDatepicker || this.inline) {
+        if (!this.closeOnClickOutside || (event.target.id === this.triggerElementId || !this.showDatepicker || this.inline)) {
           return
         }
         this.closeDatepicker();
